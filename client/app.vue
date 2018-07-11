@@ -2,9 +2,12 @@
     <div id="app">
         <div id="cover"></div>
         <Header></Header>
+        <router-link to="/app/123">app</router-link>
         <Footer></Footer>
         <!-- <Todo></Todo> -->
-        <router-view/>
+        <transition name="fade">
+            <router-view/>
+        </transition>
     </div>
 </template>
 <script>

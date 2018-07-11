@@ -7,8 +7,19 @@ export default [
     redirect: '/app'
   },
   {
-    path: '/app',
-    component: Todo
+    path: '/app/:id',
+    // props: true,
+    component: Todo,
+    name: 'app',
+    meta: {
+      title: 'this is app',
+      description: 'app'
+    },
+    // children: [
+    //   {
+    //     path: 'test'
+    //   }
+    // ]
   },
   {
     path: '/login',
