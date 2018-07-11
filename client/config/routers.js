@@ -1,5 +1,5 @@
-import Todo from '../views/todo/todo.vue'
-import Login from '../views/login/login.vue'
+// import Todo from '../views/todo/todo.vue'
+// import Login from '../views/login/login.vue'
 
 export default [
   {
@@ -7,14 +7,25 @@ export default [
     redirect: '/app'
   },
   {
-    path: '/app/:id',
+    // path: '/app/:id',
+    path: '/app',
     // props: true,
-    component: Todo,
+    // porps: (router) => ({ id: route.query.id})
+    // component: Todo,
+    component: () => import('../views/todo/todo.vue'),
+    // component: {
+    //   default: Todo,
+    //   a: Login
+    // },
     name: 'app',
     meta: {
       title: 'this is app',
       description: 'app'
     },
+    beforeEnter (to, from, next) {
+      console.log('app router before enter')
+      next()
+    }
     // children: [
     //   {
     //     path: 'test'
@@ -23,6 +34,6 @@ export default [
   },
   {
     path: '/login',
-    component: Login
+    component: () => import('../views/login/login.vue')
   }
 ]

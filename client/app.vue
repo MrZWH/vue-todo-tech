@@ -8,6 +8,7 @@
         <transition name="fade">
             <router-view/>
         </transition>
+        <!-- <router-view name="a"/> -->
     </div>
 </template>
 <script>
