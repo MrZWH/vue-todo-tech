@@ -3,7 +3,8 @@
         <div id="cover"></div>
         <Header></Header>
         <Footer></Footer>
-        <Todo></Todo>
+        <!-- <Todo></Todo> -->
+        <router-view/>
     </div>
 </template>
 <script>
