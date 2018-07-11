@@ -12,6 +12,10 @@
     </div>
 </template>
 <script>
+import {
+    mapState,
+    mapGetters
+} from 'vuex'
 import Header from "./layout/header.vue";
 import Footer from "./layout/footer.jsx";
 import Todo from './views/todo/todo.vue'
@@ -21,6 +25,16 @@ export default {
         Header,
         Footer,
         Todo,
+    },
+    computed: {
+        ...mapState(['count'])
+        // ...mapState({
+        //     counter: 'count'
+        // }),
+        // ...mapState({
+        //     counter: (state) => state.count
+        // })
+        // ...mapGetters(['fullName'])
     }
 }
 </script>
