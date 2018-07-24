@@ -2,13 +2,14 @@
     <div id="app">
         <div id="cover"></div>
         <Header></Header>
-        <router-link to="/app/123">app</router-link>
-        <Footer></Footer>
+        <!-- <router-link to="/app/123">app</router-link> -->
         <!-- <Todo></Todo> -->
         <transition name="fade">
             <router-view/>
         </transition>
         <!-- <router-view name="a"/> -->
+        <notification content="test content"/>
+        <Footer></Footer>
     </div>
 </template>
 <script>
