@@ -1,7 +1,7 @@
 <template>
   <section class="real-app">
     <div class="tab-container">
-      <tabs>
+      <tabs :value="tabValue" @change="handleChangeTab">
         <tab></tab>
       </tabs>
     </div>
@@ -48,7 +48,8 @@ export default {
   data() {
     return {
       todos: [],
-      filter: 'all'
+      filter: 'all',
+      tabValue: '1'
     }
   },
   components: {
@@ -81,6 +82,9 @@ export default {
     },
     clearAllCompleted() {
       this.todos = this.todos.filter(todo => !todo.completed)
+    },
+    handleChangeTab(value) {
+      this.tabValue = value
     }
   }
 }
