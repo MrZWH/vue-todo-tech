@@ -1,5 +1,10 @@
 <template>
   <section class="real-app">
+    <div class="tab-container">
+      <tabs>
+        <tab></tab>
+      </tabs>
+    </div>
     <input
       type="text"
       class="add-input"
@@ -13,7 +18,7 @@
       :key="todo.id"
       @del="deleteTodo"
     />
-    <Tabs
+    <helper
       :filter="filter"
       :todos="todos"
       @toggle="toggleFilter"
@@ -24,7 +29,7 @@
 
 <script>
 import Item from './item.vue'
-import Tabs from './tabs.vue'
+import Helper from './tabs.vue'
 
 let id = 0
 export default {
@@ -48,7 +53,7 @@ export default {
   },
   components: {
     Item,
-    Tabs
+    Helper
   },
   computed: {
     filteredTodos() {
@@ -107,5 +112,8 @@ export default {
   border: none;
   box-shadow: inset 0 -2px 1px rgba(0,0,0,0.03);
 }
+.tab-container
+  background-color #fff
+  paddin 0 15px
 </style>
 
