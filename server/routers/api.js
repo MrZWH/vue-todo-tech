@@ -2,6 +2,15 @@ const Router = require('koa-router')
 
 const apiRouter = new Router({prefix: '/api'})
 
+const validateUser = async (ctx, next) => {
+  if (!ctx.session.user) {
+    ctx.status = 401
+    ctx.body = 'need login'
+  } else {
+    await next()
+  }
+}
+
 const successResponse = (data) => {
   return {
     success: true,
@@ -10,7 +19,7 @@ const successResponse = (data) => {
 }
 
 apiRouter
-  .get('/todos', async (ctx) => {
+  .get('/todos', validateUser, async (ctx) => {
     const todos = await ctx.db.getAllTodos()
     ctx.body = successResponse(todos)
   })
@@ -30,5 +39,5 @@ apiRouter
     const data = await ctx.db.deleteCompleted(ctx.request.body.ids)
     ctx.body = successResponse(data)
   })
-  
+
 module.exports = apiRouter
