@@ -45,6 +45,9 @@ export default {
           username: this.username,
           password: this.password
         })
+          .then(() => {
+            this.$router.replace('/app')
+          })
       }
     },
     validate () {
