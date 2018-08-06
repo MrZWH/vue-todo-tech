@@ -51,10 +51,15 @@ export default {
     next()
   },
   mounted () {
-    this.fetchTodos()
+    if (this.todos && this.todos.length < 1) {
+      this.fetchTodos()
+    }
   },
   asyncData ({store}) {
-    return store.dispatch('fetchTodos')
+    if (store.state.user) {
+      return store.dispatch('fetchTodos')
+    }
+    return Promise.resolve()
   },
   data() {
     return {
