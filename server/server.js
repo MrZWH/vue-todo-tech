@@ -60,7 +60,8 @@ if(isDev) {
   // pageRouter = require('./routers/dev-ssr-no-bundle')
   pageRouter = require('./routers/dev-ssr')
 } else {
-  pageRouter = require('./routers/ssr')
+  pageRouter = require('./routers/ssr-no-bundle')
+  // pageRouter = require('./routers/ssr')
 }
 
 app.use(pageRouter.routes()).use(pageRouter.allowedMethods())

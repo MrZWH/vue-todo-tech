@@ -64,7 +64,7 @@ if (isDev) {
     devServer,
     plugins: defaultPlugins.concat([
       new webpack.HotModuleReplacementPlugin(),
-      // new webpack.NoEmitOnErrorsPlugin() // webpack4已取消
+      new webpack.NoEmitOnErrorsPlugin() // webpack4已取消
     ])
   })
 } else {
@@ -105,12 +105,13 @@ if (isDev) {
     },
     plugins: defaultPlugins.concat([
       new ExtractPlugin('styles.[contentHash:8].css'),
-      // new webpack.optimize.CommonsChunkPlugin({
-      //   name: 'vendor'
-      // }),
-      // new webpack.optimize.CommonsChunkPlugin({
-      //   name: 'runtime'
-      // }) // webpack4 中被废弃
+      new webpack.optimize.CommonsChunkPlugin({
+        name: 'vendor'
+      }),
+      new webpack.optimize.CommonsChunkPlugin({
+        name: 'runtime'
+      }),
+      new webpack.NamedChunksPlugin()
     ])
   })
 }
