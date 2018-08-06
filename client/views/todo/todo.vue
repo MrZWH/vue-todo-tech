@@ -53,6 +53,9 @@ export default {
   mounted () {
     this.fetchTodos()
   },
+  asyncData ({store}) {
+    return store.dispatch('fetchTodos')
+  },
   data() {
     return {
       filter: 'all',
