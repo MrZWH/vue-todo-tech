@@ -1,4 +1,6 @@
 export default {
   count: 0,
-  todos: []
+  todos: [],
+  user: null,
+  loading: false
 }
